@@ -9,5 +9,5 @@ class profileDetailView(DetailView):
     
     def get_object(self):
         return get_object_or_404(
-            customUserModel, username= self.kwargs.get('username')
+            customUserModel, username = self.kwargs.get('username')
         )

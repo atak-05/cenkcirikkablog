@@ -1,1 +1,5 @@
-navbarda bir hata vardır
+django-ckeditor
+Pillow
+django
+lotti player
+django-environ
