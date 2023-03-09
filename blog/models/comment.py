@@ -2,9 +2,10 @@ from django.db import models
 # from account.models import customUserModel #*kendi oluşturduğumuz user modelini kullanıyoruz..
 from blog.models.text import textModel
 from blog.abstractModel import dataAbstractModel
+from account.models import customUserModel 
 
 class commentModel(dataAbstractModel):
-    author = models.ForeignKey('account.customUserModel' , on_delete=models.CASCADE, related_name ='comment')    
+    author = models.ForeignKey(customUserModel, on_delete=models.CASCADE, related_name ='comment')    
     text = models.ForeignKey(textModel, on_delete=models.CASCADE, related_name='commentS') 
     comment = models.TextField()
     

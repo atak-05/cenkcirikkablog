@@ -135,10 +135,11 @@ import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-
+LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
+# *kendi oluşturduğumuz user modelini(tablosunu)kullanmak için bunu yaptık.
 AUTH_USER_MODEL = 'account.customUserModel'
