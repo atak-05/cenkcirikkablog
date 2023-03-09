@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+<! viewdan gelen istegin cevabı bu sayfada > 
+
+{% block title %}
+  Add Text
+{% endblock %}
+
+{% block content %}
+    <form method="POST"  enctype="multipart/form-data" >
+      {% csrf_token %} 
+      {{form.media}}
+      {{form|crispy}}
+      <input type ="submit" class="btn btn-dark mb-3" value = "Create Post"/>
+    </form>
+{% endblock %}

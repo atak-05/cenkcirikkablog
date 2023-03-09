@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+<! viewdan gelen istegin cevabı bu sayfada > 
+
+{% block title %}
+  Contact
+{% endblock %}
+
+{% block content %}
+    <form method="POST" >
+      {% csrf_token %} 
+      {{form|crispy}}
+      <input type ="submit" class="btn btn-dark mb-3" value = "Send "/>
+    </form>
+{% endblock %}

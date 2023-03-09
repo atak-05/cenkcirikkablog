@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+<! viewdan gelen istegin cevabı bu sayfada > 
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <form method="POST"  enctype="multipart/form-data" >
+      {% csrf_token %} 
+      {{form|crispy}}
+      <input type ="submit" class="btn btn-danger mb-3" value = "Login"/>
+    </form>
+{% endblock %}

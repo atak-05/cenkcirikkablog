@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %} {{text.title}} {% endblock %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content%} 
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src=" {{text.image.url}} " class="img" alt="..." />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{text.title}}</h5>
+          <p class="card-text">{{text.content |safe }}</p>
+          <p class="card-text">
+            <small class="text-muted"
+              >before {{text.updatedAtTime|timesince}}
+          </br>
+              Author : <a href= "{% url 'profile' username=text.author.username %}"> {{text.author.username}} </a>
+            </small>
+            {% if request.user == text.author %}
+             <p>
+                <a class= "btn btn-dark" href= "{% url 'update-text' slug=text.slug %}">
+                Edit
+                </a>
+                <a class= "btn btn-danger" href= "{% url 'delete-text' slug=text.slug %}">
+                  Delete
+                </a>
+              </p>  
+            {% endif %}
+            <p>
+              
+            </p>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h5 class = "mt-2">Comments</h5>
+    {% if request.user.is_authenticated %}
+      <form method="POST" >
+        {% csrf_token %}
+        {{addComment|crispy}}
+        <input type="submit" value = "Comment"  class = "btn btn-primary  mt-2 mb-3"/>
+      </form>
+    {% else %}
+      <p>You must login for add a comment </p>
+    {% endif%}
+    {% include 'components/message.html' %}
+    {%for comment in comments %}
+      <div class="card mt-1">
+        <div class="card-body" style = "display:flex;flex-direction: row;">
+          <div class="me-3">
+            {% if comment.author.avatar %}
+              <img src="{{comment.author.avatar.url}}" class="rounded" class="pt-1" width="70px" height="70px">
+            {%else%}
+              <img src="{% static 'img/no-avatar.png' %}" class="rounded" class="pt-1" width="70px" height="70px">
+            {%endif%}
+          </div>
+          <div>
+            <h5 class="card-title"> {{comment.author.username}} </h5>
+            <p class="card-text">{{comment.comment}} </p>
+            {% if request.user == comment.author or request.user == text.author %}
+            <p>
+              <a  class="btn btn-danger" href=" {% url 'delete-comment' id=comment.id %} ">Delete</a>
+            </p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+     {% empty %}
+     <p>No comment found</p> 
+    {% endfor %}
+  </div>
+  
+{% endblock %}
