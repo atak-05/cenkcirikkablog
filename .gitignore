@@ -2,3 +2,5 @@ media
 db.sqlite3
 avatar
 .env
+.vscode
+prod.sqlite3
