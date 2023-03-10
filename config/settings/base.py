@@ -131,3 +131,32 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 # *kendi oluşturduğumuz user modelini(tablosunu)kullanmak için bunu yaptık.
 AUTH_USER_MODEL = 'account.customUserModel'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters':{
+        'simple_expression':{
+            'format': '{asctime}{levelname}{message}{name}',
+            'style': '{'
+        }
+    },
+    'handlers': {
+        'console':{
+            'class': 'logging.StreamHandler',  
+        },
+        'file':{
+            'class': 'logging.FileHandler',
+            'filename': 'logs/how_read_text.log',
+            'formatter' : 'simple_expression'
+        }
+    },
+    'loggers': {
+        'how_read_text': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        }
+    }
+
+}

@@ -20,20 +20,24 @@
     />
 
   </head>
-  <body>
+  <body class="bg-image" style="background-image: url('{% static 'img/background2.png' %}'); height: 100vh; background-size: cover;">
    {% include 'components/navbar.html' %}
     <!--====================Body================================== -->
-    <div class="container mt-3">
-      <div class="row">
-        <div {% if request.user.is_authenticated %} class="col-sm-9" {% else %} class="col-12" {% endif %}>
-          {%block content %} {% endblock %}        
+    <div >
+      <div class="container mt-3">
+        <div class="row">
+          <div {% if request.user.is_authenticated %} class="col-sm-9" {% else %} class="col-12" {% endif %}>
+            {%block content %} {% endblock %}        
+        </div>
+        {% include 'components/sidebar1.html' %}
+        <!--{% if request.user.is_authenticated %}
+           {% include 'components/sidebar.html' %}
+        {% endif %}-->
       </div>
-      {% if request.user.is_authenticated %}
-         {% include 'components/sidebar.html' %}
-      {% endif %}
+      {% include 'components/footer.html' %}
+      </div>
     </div>
-    {% include 'components/footer.html' %}
-    </div>
+   
       <!--====================foother================================== -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script
