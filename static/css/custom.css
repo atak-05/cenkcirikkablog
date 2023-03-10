@@ -8,3 +8,12 @@
     width: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6), url(../img/phoenix_azjEfjt.png));
 }
+.bg-black {
+    background-color: black;
+    
+  }
+  .bg-border {
+    border-width: 5px;
+    border-style: double;
+    border-color: red;
+  }

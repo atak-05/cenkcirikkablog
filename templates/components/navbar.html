@@ -5,7 +5,7 @@
 <div class="bg-image" style="background-image: url('{% static 'img/background2.png' %}'); background-size: cover;">
   <nav class="navbar navbar-expand-lg ">
     <div class="container " >
-      <a class="navbar-brand text-white" href=" {% url 'home' %} ">Gizy's Blog</a>
+      <a class="navbar-brand text-white ms-auto" href=" {% url 'home' %} ">CENK ÇIRIKKA</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -17,16 +17,27 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav ">
           {% for category in categories %}
           <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href= "{% url 'category' categorySlug=category.slug %}"
+            <a class="nav-link active  text-white" aria-current="page" href= "{% url 'category' categorySlug=category.slug %}"
               >{{category.categoryName}}</a
             >
           </li>
           {% endfor %}
+          <li class="nav-item">
+            <a class="nav-link active  text-white" aria-current="page" href= "{% url 'about'  %}"
+              >Hakkımızda</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active  text-white" aria-current="page" href= "{% url 'contact'  %}"
+              >İletişim</a
+            >
+          </li>
         </ul>
+      </div>
         <form action= '{% url 'home' %}' class="d-flex" role="search">
           <input
             name= 'query' 
@@ -37,7 +48,7 @@
           />
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-      </div>
+      
     </div>
   </nav>
 </div>
