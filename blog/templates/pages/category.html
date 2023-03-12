@@ -5,15 +5,15 @@
 
 {% block content%} 
   {% for text in texts %}
-  <div class="card border-light bg-black mb-3">
+  <div class="card  mb-3">
     <div class="row g-0">
       <div class="col-md-4">
         <img src=" {{text.image.url}} " class="img" alt="..." />
       </div>
       <div class="col-md-8">
-        <div class="card-body text-light ">
+        <div class="card-body  ">
           <h5 class="card-title">
-            <a  class = "text-light" href = '{% url 'detail' slug=text.slug %}' style="text-decoration:none " >
+            <a  class = "text-dark" href = '{% url 'detail' slug=text.slug %}' style="text-decoration:none " >
               {{text.title|safe}}
             </a>
           </h5>

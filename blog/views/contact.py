@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from blog.forms.contact import contactForm
 from blog.models.contact import contactModel
 from django.views.generic import FormView
+
 #* __init__.py sayfasına dahil etmeyi unutma!
 # def contact(request):
 #     form = contactForm(
@@ -35,6 +36,7 @@ class contactFormView(FormView):
     template_name = 'pages/contact.html'
     form_class = contactForm
     success_url = 'send-email'
+  
     
     def form_valid(self, form) :
         form.save()
@@ -43,4 +45,5 @@ class contactFormView(FormView):
         # return redirect(self.success_url)
         # aynı şey
         return super().form_valid(form)
+    
     

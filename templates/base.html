@@ -20,11 +20,21 @@
     />
 
   </head>
-  <body class="bg-image" style="background-image: url('{% static 'img/background2.png' %}'); height: 100vh; background-size: cover;">
-   {% include 'components/navbar.html' %}
+  <body >
+    <header>
+      {% include 'components/navbar.html' %}
+    </header>
+     
+     
+    
+        
+         <!-- class="bg-image" style="background-image: url('{% static 'img/background2.png' %}'); height: 100vh; background-size: cover;"-->
+          
+  
+
     <!--====================Body================================== -->
-    <div >
-      <div class="container mt-3">
+    <main>
+      <div class="container mt-5">
         <div class="row">
           <div {% if request.user.is_authenticated %} class="col-sm-9" {% else %} class="col-12" {% endif %}>
             {%block content %} {% endblock %}        
@@ -34,10 +44,16 @@
            {% include 'components/sidebar.html' %}
         {% endif %}-->
       </div>
-      {% include 'components/footer.html' %}
       </div>
-    </div>
+    </main>
+    <footer>
+      {% include 'components/footer.html' %}
+    </footer>
+    
+    
+      
    
+
       <!--====================foother================================== -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script
@@ -45,6 +61,12 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript">
+      window.addEventListener("scroll", function(){
+        var header =document.querySelector("header")
+        header.classList.toggle("sticky", window.scrollY > 0);
+      })
+    </script>
   </body>
 </html>
 
