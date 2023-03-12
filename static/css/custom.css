@@ -54,7 +54,7 @@ header .logo{
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: 0.6s;
-
+  padding-top: 50%;
 }
 header ul{
   position: relative;
