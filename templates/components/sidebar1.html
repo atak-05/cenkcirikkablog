@@ -1,8 +1,11 @@
-<div class="col-sm-3 mt-5">
-    <div class="card mb-3">
-      <div class="card-header">
-        Menu
-      </div>
 
-    </div>
-  </div>
+
+
+<h3>Populer Yazılar</h3>
+<ul>
+  {% for text in texts %}
+  <li><a href="#"> {{text.title}} </a></li>
+  {% empty %}
+  <p>"have no anytext"</p>
+  {% endfor %}
+</ul>

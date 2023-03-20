@@ -1,0 +1,71 @@
+
+{% load static %}
+<! viewdan gelen istegin cevabı bu sayfada >
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{%block title%} {% endblock %}</title>
+    <link
+      href="{% static 'css/bootstrap.min.css'%}"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      href="{% static 'css/custom.css'%}"
+      rel="stylesheet"
+    />
+
+  </head>
+  <body >
+    <div class="container">
+           
+    
+        
+         <!-- class="bg-image" style="background-image: url('{% static 'img/background2.png' %}'); height: 100vh; background-size: cover;"-->
+          
+  
+
+    <!--====================Body================================== -->
+    
+    
+    {% include 'components/navbar.html' %}
+    <div {% if request.user.is_authenticated %} class="col-sm-9" {% else %} class="col-12" {% endif %}>
+      {%block content %} {% endblock %}        
+  </div>
+  {% include 'components/sidebar1.html' %}
+  <!--{% if request.user.is_authenticated %}
+     {% include 'components/sidebar.html' %}
+  {% endif %}-->
+
+
+
+<footer>
+{% include 'components/footer.html' %}
+</footer>
+    </div>
+
+    
+    
+      
+   
+
+      <!--====================foother================================== -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script
+      src='static/js/bootstrap.bundle.min.js'
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+
