@@ -91,7 +91,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
+import os
 
+DEBUG = bool(int(os.environ.get("DEBUG", 0)))
+
+if DEBUG:
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+else:
+    ALLOWED_HOSTS = ["your-production-domain.com"]  # Üretim ortamı için uygun değeri buraya yazın
 
 
 
